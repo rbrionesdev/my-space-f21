@@ -6,11 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 // we are renaming BrowserRoute to Router
 import { BrowserRouter as Router } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
+import AuthProvider from "./providers/AuthProvider";
+import { initMiddleware } from 'devise-axios';
+
+initMiddleware();
 
 ReactDOM.render(
-  <Router>
+  <AuthProvider>
+    <Router>
     <App />
-  </Router>,
+    </Router>
+  </AuthProvider>,  
   document.getElementById("root")
 );
 
